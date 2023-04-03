@@ -60,8 +60,8 @@ public class Authentication extends HttpServlet {
 			return;
 
 		}
-		userService.addUser(user);
-
+		ResponseDto<Integer> responseDto = new ResponseDto<Integer>(201, "signup", userService.addUser(user));
+		out.println(gson.toJson(responseDto));
 	}
 
 }
